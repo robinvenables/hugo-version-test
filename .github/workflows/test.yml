@@ -1,0 +1,24 @@
+name: AWS example workflow
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispath:
+permissions:
+      id-token: write   # This is required for requesting the JWT
+      contents: read    # This is required for actions/checkout
+jobs:
+  S3PackageUpload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone the repository
+        uses: actions/checkout@v3
+      - name: configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::845066828582:role/GitHubTestRole
+          role-session-name: githubtestsession
+          aws-region: eu-west-2
+      # Upload a file to AWS s3
+      - name:  Display identity
+        run: |
+          aws sts get-caller-identity
