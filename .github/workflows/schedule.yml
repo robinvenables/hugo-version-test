@@ -1,7 +1,7 @@
 name: Create our Weekly Meeting notes issue
 on:
-  push:
-    branches: [ "main" ]
+  schedule:
+    - cron: '0 8 * * 1'
   workflow_dispatch:
 permissions:
   contents: read
@@ -16,3 +16,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           filename: .github/workflows/TEMPLATES/meeting-notes.md
+          assignees: robinvenables
