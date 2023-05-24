@@ -17,3 +17,7 @@ jobs:
         with:
           filename: .github/workflows/TEMPLATES/meeting-notes.md
           assignees: robinvenables
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.112.1'
