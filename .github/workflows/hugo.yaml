@@ -18,7 +18,7 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.136.3
+      HUGO_VERSION: 0.136.4
     steps:
       - name: Install Hugo CLI
         run: |
@@ -27,3 +27,4 @@ jobs:
       - name: Confirm Hugo version
         run: |
           hugo version
+          go version
