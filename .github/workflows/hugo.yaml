@@ -27,4 +27,6 @@ jobs:
       - name: Confirm Hugo version
         run: |
           hugo version
+      - name: Confirm Go version
+        run: |
           go version
